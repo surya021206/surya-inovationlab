@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple JS Calculator</title>
+</head>
+<body>
+
+  <h2>Simple JavaScript Calculator</h2>
+
+  <label for="num1">Enter first number:</label>
+  <input type="number" id="num1"><br><br>
+
+  <label for="num2">Enter second number:</label>
+  <input type="number" id="num2"><br><br>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <h3>Results:</h3>
+  <p id="add"></p>
+  <p id="sub"></p>
+  <p id="mul"></p>
+  <p id="div"></p>
+  <p id="mod"></p>
+  <p id="pow"></p>
+
+  <script>
+    function calculate() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      document.getElementById('add').innerText = `Addition: ${num1 + num2}`;
+      document.getElementById('sub').innerText = `Subtraction: ${num1 - num2}`;
+      document.getElementById('mul').innerText = `Multiplication: ${num1 * num2}`;
+      document.getElementById('div').innerText = `Division: ${num2 !== 0 ? num1 / num2 : 'Cannot divide by zero'}`;
+      document.getElementById('mod').innerText = `Modulus: ${num1 % num2}`;
+      document.getElementById('pow').innerText = `Power: ${Math.pow(num1, num2)}`;
+    }
+  </script>
+
+</body>
+</html>
